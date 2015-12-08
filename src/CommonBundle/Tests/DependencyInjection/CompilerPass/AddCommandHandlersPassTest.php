@@ -11,7 +11,7 @@ class AddCommandHandlersPassTest extends \PHPUnit_Framework_TestCase
     public function test_handlers_added_to_bus()
     {
         $container = new ContainerBuilder();
-        $container->setDefinition('app.command_bus', $bus = new Definition('CommandBus'));
+        $container->setDefinition('rp.command_bus', $bus = new Definition('CommandBus'));
 
         $handler1 = new Definition('\AppBundle\Worksheet\CommandHandler\ReleaseResponseLockCommandHandler');
         $handler1->addTag('command_bus.handler');
@@ -35,7 +35,7 @@ class AddCommandHandlersPassTest extends \PHPUnit_Framework_TestCase
     public function test_known_dependencies_injected_injected_into_handlers()
     {
         $container = new ContainerBuilder();
-        $container->setDefinition('app.command_bus', $bus = new Definition('CommandBus'));
+        $container->setDefinition('rp.command_bus', $bus = new Definition('CommandBus'));
 
         $handler1 = new Definition('\AppBundle\Company\CommandHandler\CreatePlanItemsCommandHandler');
         $handler1->addTag('command_bus.handler');
@@ -58,7 +58,7 @@ class AddCommandHandlersPassTest extends \PHPUnit_Framework_TestCase
         $calls2 = $handler2->getMethodCalls();
         $this->assertCount(1, $calls2);
         $this->assertEquals('setCommandBus', $calls2[0][0]);
-        $this->assertEquals('app.command_bus', $calls2[0][1][0]);
+        $this->assertEquals('rp.command_bus', $calls2[0][1][0]);
 
         $calls3 = $handler3->getMethodCalls();
         $this->assertCount(2, $calls3);

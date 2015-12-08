@@ -1,0 +1,3 @@
+services:
+    rp.command_bus:
+        class: RP\CommonBundle\CommandBus\CommandBus

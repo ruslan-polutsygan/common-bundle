@@ -2,6 +2,7 @@
 
 namespace RP\CommonBundle;
 
+use RP\CommonBundle\DependencyInjection\CompilerPass\AddCommandHandlersPass;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 
@@ -11,6 +12,6 @@ class RPCommonBundle extends Bundle
     {
         parent::build($container);
 
-//        $container->addCompilerPass();
+        $container->addCompilerPass(new AddCommandHandlersPass());
     }
 }

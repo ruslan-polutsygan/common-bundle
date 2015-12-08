@@ -12,7 +12,7 @@ class AddCommandHandlersPass implements CompilerPassInterface
     public function process(ContainerBuilder $container)
     {
         $tagged = $container->findTaggedServiceIds('command_bus.handler');
-        $bus = $container->getDefinition('app.command_bus');
+        $bus = $container->getDefinition('rp.command_bus');
 
         foreach ($tagged as $id => $tag) {
             $bus->addMethodCall('addHandler', [new Reference($id)]);
@@ -32,7 +32,7 @@ class AddCommandHandlersPass implements CompilerPassInterface
         }
 
         if ($r->implementsInterface('RP\CommonBundle\CommandBus\CommandHandler\CommandBusAwareInterface')) {
-            $definition->addMethodCall('setCommandBus', [new Reference('app.command_bus')]);
+            $definition->addMethodCall('setCommandBus', [new Reference('rp.command_bus')]);
         }
 
         if ($r->implementsInterface('RP\CommonBundle\CommandBus\CommandHandler\EventDispatcherAwareInterface')) {
