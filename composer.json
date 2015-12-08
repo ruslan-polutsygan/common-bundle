@@ -1,0 +1,22 @@
+{
+    "name":         "ruslan-polutsygan/common-bundle",
+    "description":  "Common stuff. To migrate from project to project",
+    "keywords":     ["development", "tests", "fixtures"],
+    "homepage":     "https://github.com/ruslan-polutsygan/common-bundle",
+    "type":         "library",
+    "license":      "MIT",
+    "authors":      [
+        {
+            "name":      "Ruslan Polutsygan",
+            "email":     "ruslan.polutsygan@gmail.com"
+        }
+    ],
+    "require": {
+        "symfony/symfony": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "RP\\": "src/"
+        }
+    }
+}
