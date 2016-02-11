@@ -12,7 +12,9 @@
         }
     ],
     "require": {
-        "symfony/symfony": "*"
+        "symfony/symfony": "*",
+        "vich/uploader-bundle": "*",
+        "liip/imagine-bundle": "*"
     },
     "autoload": {
         "psr-4": {

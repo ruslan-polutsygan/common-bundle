@@ -1,0 +1,30 @@
+{% block rp_image_widget %}
+    {% if image_path %}
+        <img src="{{ image_path|imagine_filter(image_filter) }}" alt="{{ image_path }}" />
+    {% else %}
+        <em>no image yet</em>
+    {% endif %}
+    {{ form_widget(form) }}
+    <a href="#" data-image-field="{{ form.vars.id }}" style="display: none">Clear selected image</a>
+    <script type="text/javascript">
+        $(function(){
+            var imageFieldId = '{{ form.vars.id }}';
+
+            var $imageField = $('#' + imageFieldId);
+            var $clearLink = $('a[data-image-field="'+imageFieldId+'"]');
+
+
+            $imageField.on('change', function(){
+                $clearLink.show();
+            });
+
+            $clearLink.on('click', function(){
+                $imageField.val(null);
+                $clearLink.hide();
+
+                return false;
+            });
+
+        });
+    </script>
+{% endblock %}

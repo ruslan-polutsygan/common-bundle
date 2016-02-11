@@ -1,3 +1,5 @@
 services:
     rp.command_bus:
         class: RP\CommonBundle\CommandBus\CommandBus
+    rp.assets.unique_namer:
+        class: RP\CommonBundle\Assets\Uploader\Naming\UniqueNamer
