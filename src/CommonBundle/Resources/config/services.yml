@@ -3,3 +3,6 @@ services:
         class: RP\CommonBundle\CommandBus\CommandBus
     rp.assets.unique_namer:
         class: RP\CommonBundle\Assets\Uploader\Naming\UniqueNamer
+    rp.menu_builder:
+        class: RP\CommonBundle\Menu\MenuBuilder
+        arguments: ['@knp_menu.factory']

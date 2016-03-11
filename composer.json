@@ -14,7 +14,8 @@
     "require": {
         "symfony/symfony": "*",
         "vich/uploader-bundle": "*",
-        "liip/imagine-bundle": "*"
+        "liip/imagine-bundle": "*",
+        "knplabs/knp-menu-bundle": "*"
     },
     "autoload": {
         "psr-4": {

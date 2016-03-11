@@ -12,9 +12,15 @@ class Configuration implements ConfigurationInterface
      */
     public function getConfigTreeBuilder()
     {
-        $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root('rp_common');
+        $builder = new TreeBuilder();
+        $builder->root('rp_common')
+            ->children()
+                ->variableNode('menu')
+                ->end()
+            ->end()
+        ;
 
-        return $treeBuilder;
+
+        return $builder;
     }
 }
