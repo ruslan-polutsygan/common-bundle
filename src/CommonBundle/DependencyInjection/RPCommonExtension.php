@@ -23,10 +23,12 @@ class RPCommonExtension extends Extension
 
         $builder = $container->getDefinition('rp.menu_builder');
         if(isset($config['menu'])) {
-            foreach($config['menu'] as $name => $items) {
+            foreach($config['menu'] as $name => $menuConfig) {
                 $menu = new Definition('Knp\Menu\MenuItem');
                 $menu->setFactory([$builder, 'createMenu']);
-                $menu->setArguments([$items]);
+                $items = isset($menuConfig['items']) ? $menuConfig['items'] : [];
+                $options = isset($menuConfig['options']) ? $menuConfig['options'] : [];
+                $menu->setArguments([$items, $options]);
                 $menu->addTag('knp_menu.menu', ['alias' => $name]);
 
                 $container->setDefinition('rp_common.menu.'.$name, $menu);
